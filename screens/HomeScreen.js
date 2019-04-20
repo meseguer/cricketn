@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { Container, Content } from "native-base";
 
-import Place from "./partials/Place";
+import Place from "./../components/Place";
 import axios from "axios";
 
 export default class CardShowcaseExample extends Component {

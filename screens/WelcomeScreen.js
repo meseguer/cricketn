@@ -2,8 +2,7 @@ import React, { Component } from "react";
 
 import { Container, View } from "native-base";
 
-import axios from "axios";
-// import WelcomeSVG from "./../assets/images/welcome.svg";
+import Feature from "./../components/Feature";
 
 export default class CardShowcaseExample extends Component {
   static navigationOptions = {
@@ -16,17 +15,9 @@ export default class CardShowcaseExample extends Component {
         <View
           style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
         >
-          {/* <WelcomeSVG /> */}
+          <Feature />
         </View>
       </Container>
     );
-  }
-
-  getContent() {
-    return axios
-      .get("https://a6qd1c6fzl.execute-api.us-east-1.amazonaws.com/dev/hello")
-      .then(res => {
-        return res.data.places;
-      });
   }
 }
