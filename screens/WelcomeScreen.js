@@ -12,11 +12,7 @@ export default class CardShowcaseExample extends Component {
   render() {
     return (
       <Container>
-        <View
-          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-        >
-          <Feature />
-        </View>
+        <Feature />
       </Container>
     );
   }
