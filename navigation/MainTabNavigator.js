@@ -10,7 +10,7 @@ import HomeScreen from "../screens/HomeScreen";
 import LinksScreen from "../screens/LinksScreen";
 import SettingsScreen from "../screens/SettingsScreen";
 // Welcome screens
-import WelcomeScreen from "../screens/WelcomeScreen";
+import WelcomeScreen from "../screens/asasas";
 
 const WelcomeStack = createStackNavigator({
   Welcome: WelcomeScreen
@@ -71,9 +71,9 @@ SettingsStack.navigationOptions = {
 
 export default createStackNavigator(
   {
-    SplashScreen: { screen: WelcomeScreen }
+    SplashScreen: { screen: WelcomeScreen },
     // AuthScreen: { screen: AuthScreen },
-    // MainNavigator: { screen: MainNavigator }
+    MainNavigator: { screen: HomeStack }
   },
   {
     headerMode: "screen",
