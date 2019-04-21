@@ -2,20 +2,38 @@ import React from "react";
 import {
   createAppContainer,
   createStackNavigator,
-  createSwitchNavigator
+  createSwitchNavigator,
+  createBottomTabNavigator
 } from "react-navigation";
+import LoadingScreen from "../screens/LoadingScreen";
 import WelcomeScreen from "../screens/WelcomeScreen";
 import HomeScreen from "../screens/HomeScreen";
-import LoadingScreen from "../screens/LoadingScreen";
+import LinksScreen from "../screens/LinksScreen";
+import SettingsScreen from "../screens/SettingsScreen";
 
-const MainNavigator = createStackNavigator(
+import MainTabNavigator from "./MainTabNavigator";
+
+const MainNavigator = createBottomTabNavigator(
   {
-    Home: { screen: HomeScreen }
+    Home: { screen: HomeScreen },
+    Links: { screen: HomeScreen },
+    Settings: { screen: HomeScreen }
   },
   {
     headerMode: "screen",
     navigationOptions: {
-      header: false
+      header: false,
+      tabBarLabel: "Home",
+      tabBarIcon: ({ focused }) => (
+        <TabBarIcon
+          focused={focused}
+          name={
+            Platform.OS === "ios"
+              ? `ios-information-circle${focused ? "" : "-outline"}`
+              : "md-information-circle"
+          }
+        />
+      )
     }
   }
 );
@@ -27,7 +45,7 @@ const WelcomeNavigator = createStackNavigator({
 const AppNavigator = createSwitchNavigator({
   Loading: LoadingScreen,
   Welcome: WelcomeNavigator,
-  Home: MainNavigator
+  Home: MainTabNavigator
 });
 
 const App = createAppContainer(AppNavigator);

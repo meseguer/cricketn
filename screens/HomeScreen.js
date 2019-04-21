@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { Container, Content } from "native-base";
 
 import Place from "./../components/Place";
+import HomeHeader from "./../components/HomeHeader";
+
 import axios from "axios";
 
 export default class CardShowcaseExample extends Component {
@@ -11,20 +13,6 @@ export default class CardShowcaseExample extends Component {
     KEY: "AIzaSyCSByTFzTOTbQO5F0s-ClqqSI0v4Q5_9Ok"
   };
 
-  async componentWillMount() {
-    const places = await this.getContent();
-    const detailedPlaces = await Promise.all(
-      places.map(async place => {
-        place.picture = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${
-          place.photos[0].photo_reference
-        }&key=${this.state.KEY}`;
-        this.state.KEY;
-        return place;
-      })
-    );
-    this.setState({ places: detailedPlaces });
-  }
-
   static navigationOptions = {
     title: "Home: Mallorca"
   };
@@ -32,6 +20,7 @@ export default class CardShowcaseExample extends Component {
   render() {
     return (
       <Container>
+        <HomeHeader />
         <Content>
           {this.state.places.map((place, index) => (
             <Place
@@ -52,5 +41,19 @@ export default class CardShowcaseExample extends Component {
       .then(res => {
         return res.data.places;
       });
+  }
+
+  async componentWillMount() {
+    const places = await this.getContent();
+    const detailedPlaces = await Promise.all(
+      places.map(async place => {
+        place.picture = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${
+          place.photos[0].photo_reference
+        }&key=${this.state.KEY}`;
+        this.state.KEY;
+        return place;
+      })
+    );
+    this.setState({ places: detailedPlaces });
   }
 }

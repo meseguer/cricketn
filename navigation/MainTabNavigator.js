@@ -9,12 +9,6 @@ import TabBarIcon from "../components/TabBarIcon";
 import HomeScreen from "../screens/HomeScreen";
 import LinksScreen from "../screens/LinksScreen";
 import SettingsScreen from "../screens/SettingsScreen";
-// Welcome screens
-import WelcomeScreen from "../screens/asasas";
-
-const WelcomeStack = createStackNavigator({
-  Welcome: WelcomeScreen
-});
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen
@@ -62,23 +56,8 @@ SettingsStack.navigationOptions = {
   )
 };
 
-// export default createBottomTabNavigator({
-//   WelcomeStack,
-//   HomeStack,
-//   LinksStack,
-//   SettingsStack
-// });
-
-export default createStackNavigator(
-  {
-    SplashScreen: { screen: WelcomeScreen },
-    // AuthScreen: { screen: AuthScreen },
-    MainNavigator: { screen: HomeStack }
-  },
-  {
-    headerMode: "screen",
-    navigationOptions: {
-      header: false //{ visible: false }
-    }
-  }
-);
+export default createBottomTabNavigator({
+  HomeStack,
+  LinksStack,
+  SettingsStack
+});
