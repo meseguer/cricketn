@@ -41,7 +41,8 @@ const slides = [
     text:
       "React-native-app-intro-slider is easy to setup with a small footprint and no dependencies. And it comes with good default layouts!",
     icon: "ios-images",
-    colors: ["#63E2FF", "#B066FE"]
+    colors: ["#63E2FF", "#B066FE"],
+    picture: require("./../assets/images/welcome.png")
   },
   {
     key: "somethun1",
@@ -49,14 +50,16 @@ const slides = [
     text:
       "The component is also super customizable, so you can adapt it to cover your needs and wants.",
     icon: "ios-options",
-    colors: ["#A3A1FF", "#3A3897"]
+    colors: ["#A3A1FF", "#3A3897"],
+    picture: require("./../assets/images/learn.png")
   },
   {
     key: "somethun2",
     title: "No need to buy me beer",
     text: "Usage is all free",
     icon: "ios-beer",
-    colors: ["#29ABE2", "#4F00BC"]
+    colors: ["#29ABE2", "#4F00BC"],
+    picture: require("./../assets/images/find.png")
   }
 ];
 
@@ -66,29 +69,34 @@ export default class Feature extends Component {
   };
   _renderItem = props => {
     return (
-      <LinearGradient
-        style={[
-          styles.mainContent,
-          {
-            width: props.width,
-            height: props.height
-          }
-        ]}
-        colors={props.colors}
-        start={{ x: 0, y: 0.1 }}
-        end={{ x: 0.1, y: 1 }}
-      >
-        <Ionicons
+      <View>
+      // <LinearGradient
+      //   style={[
+      //     styles.mainContent,
+      //     {
+      //       width: props.width,
+      //       height: props.height
+      //     }
+      //   ]}
+      //   colors={props.colors}
+      //   start={{ x: 0, y: 0.1 }}
+      //   end={{ x: 0.1, y: 1 }}
+      // >
+        {/* <Ionicons
           style={{ backgroundColor: "transparent" }}
           name={props.icon}
           size={200}
           color="white"
+        /> */}
+        <Image
+          style={{ width: 250, height: 250, marginBottom: -50 }}
+          source={props.picture}
         />
         <View>
           <Text style={styles.title}>{props.title}</Text>
           <Text style={styles.text}>{props.text}</Text>
         </View>
-      </LinearGradient>
+      </View>
     );
   };
   _onDone = () => {
