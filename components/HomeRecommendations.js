@@ -13,9 +13,9 @@ export default class HomeRecommendations extends React.Component {
     KEY: "AIzaSyCSByTFzTOTbQO5F0s-ClqqSI0v4Q5_9Ok"
   };
 
-  _renderItem = ({ name, icon, picture }) => {
-    return <Place title={name} categoryIcon={icon} icon={picture} />;
-  };
+  _renderItem = ({ item }) => (
+    <Place title={item.name} categoryIcon={item.icon} icon={item.picture} />
+  );
   _keyExtractor = (item, index) => item.id;
 
   render() {

@@ -15,11 +15,7 @@ export default class CardShowcaseExample extends React.Component {
   render() {
     return (
       <Container>
-        {/* <HomeHeader /> */}
         <HomeRecommendations />
-        {/* <View>
-          <Text>Awesome</Text>
-        </View> */}
       </Container>
     );
   }

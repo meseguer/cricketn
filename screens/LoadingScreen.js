@@ -16,6 +16,7 @@ export default class LoadingScreen extends React.Component {
   // Fetch the token from storage then navigate to our appropriate place
   _bootstrapAsync = async () => {
     const value = await AsyncStorage.getItem("welcomeDone");
+    return this.props.navigation.navigate("Welcome");
     this.props.navigation.navigate(value ? "Home" : "Welcome");
   };
 

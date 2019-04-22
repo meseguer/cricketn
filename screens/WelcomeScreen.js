@@ -27,7 +27,7 @@ const slides = [
     icon: "ios-images",
     image: require("./../assets/images/explore.png"),
     imageStyle: styles.image,
-    backgroundColor: "#59b2ab"
+    backgroundColor: "#3FC1C9"
   },
   {
     key: "somethun13",
